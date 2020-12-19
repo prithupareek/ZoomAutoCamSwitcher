@@ -29,7 +29,7 @@ def listNotNone(list):
 
 def main():
     camera = Cameras.EXTERNAL
-    bufferSize = 30 # change this number to increase the time it takes to switch cameras, righnow its around 10 secs
+    bufferSize = 20 # change this number to increase the time it takes to switch cameras, righnow its around 10 secs
     counter = 0 
     mod = 3 # this one as well
 
