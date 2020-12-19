@@ -1,4 +1,4 @@
-# Zoom Auto Cam
+# ZoomAutoCamSwitcher
 
 Short program to switch between a two webcam setup for zoom calls using gaze tracking.
 

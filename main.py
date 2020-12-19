@@ -29,20 +29,22 @@ def listNotNone(list):
 
 def main():
     camera = Cameras.EXTERNAL
+    bufferSize = 30 # change this number to increase the time it takes to switch cameras, righnow its around 10 secs
+    counter = 0 
+    mod = 3 # this one as well
 
     gaze = GazeTracking()
     webcam = cv2.VideoCapture(Cameras.EXTERNAL.value)
 
-    prev_pupils = [(1.0,1.0) for i in range(5)]
-    curr_pupils = [(1.0,1.0) for i in range(5)]
-
-    counter = 0
+    prev_pupils = [(1.0,1.0) for i in range(bufferSize)]
+    curr_pupils = [(1.0,1.0) for i in range(bufferSize)]
 
     while True:
         # We get a new frame from the webcam
         _, frame = webcam.read()
 
-        if (counter % 2 == 0):
+        # limits the number of samples taken
+        if (counter % mod == 0):
             # We send this frame to GazeTracking to analyze it
             gaze.refresh(frame)
 
